@@ -1,4 +1,4 @@
-name: Issue Logger (Vulnerable Version)
+name: Issue Logger (Secure Version)
 
 on:
   issues:
@@ -8,6 +8,8 @@ jobs:
   log-issue:
     runs-on: ubuntu-latest
     steps:
-      - name: Log issue title
+      - name: Log issue title (SECURE)
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
         run: |
-          echo "New issue title is: ${{ github.event.issue.title }}"
+          echo "New issue title is $ISSUE_TITLE"
